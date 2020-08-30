@@ -10,5 +10,9 @@
     <string name="btn_service">Service</string>
     <string name="btn_broadcast">Broadcast receiver</string>
     <string name="btn_content">Content provider</string>
+    <string name="btn_close">Close</string>
+    <string name="btn_play">Play</string>
+    <string name="btn_pause">Pause</string>
+    <string name="btn_stop">Stop</string>
 
 </resources>

@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         binding.btnActivity.setOnClickListener(this);
+        binding.btnService.setOnClickListener(this);
 
     }
 
@@ -28,6 +29,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnActivity:
                 Intent intent = new Intent(this, MainActivity2.class);
                 startActivity(intent);
+                break;
+            case R.id.btnService:
+                Intent iService = new Intent(this, ServiceExample.class);
+                startActivity(iService);
                 break;
         }
 
