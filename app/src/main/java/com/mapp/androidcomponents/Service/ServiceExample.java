@@ -1,4 +1,4 @@
-package com.mapp.androidcomponents;
+package com.mapp.androidcomponents.Service;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -7,13 +7,11 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
-import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
 
+import com.mapp.androidcomponents.R;
 import com.mapp.androidcomponents.databinding.ActivityServiceExampleBinding;
 
 import java.util.Timer;
@@ -52,7 +50,7 @@ public class ServiceExample extends AppCompatActivity implements View.OnClickLis
 
                 //A cheaty way to get the current position of the song
                 //Each second got the position and show it.
-                //It can be improved using a custom media player and haveing a progress bar with listener
+                //It can be improved using a custom media player and having a progress bar with listener
                 Timer timer = new Timer();
                 timer.scheduleAtFixedRate(new TimerTask() {
                     @Override
@@ -85,15 +83,20 @@ public class ServiceExample extends AppCompatActivity implements View.OnClickLis
             case R.id.btnPlay:
 
                 //Attach the service to our Activity
+                //Bound Service
                 i = new Intent(this, MyService.class);
                 bindService(i, serviceConnection, Context.BIND_AUTO_CREATE);
                 this.startService(i);
+
+
+                //This is a simple call to the service.
+                //Started service. We won't receive any information from the service
                 /*
                 i = new Intent(this, MyService.class);
                 this.startService(i);
                 */
 
-                //You can test this code to see the diference.
+                //You can test this code to see the difference.
                 //If the app is send to background. The sound will stop. In a service this behavior is not happening
                 /*
                 MediaPlayer mp = MediaPlayer.create(this, R.raw.bensound_creativeminds);

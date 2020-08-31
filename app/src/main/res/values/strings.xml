@@ -14,5 +14,13 @@
     <string name="btn_play">Play</string>
     <string name="btn_pause">Pause</string>
     <string name="btn_stop">Stop</string>
+    <string name="txt_instructions">Activate the receiver and turn off your internet connection to see the receiver in action</string>
+    <string name="btn_activatereceiver">Activar system receiver</string>
+    <string name="btn_customBroadcast">Custom broadcast</string>
+    <string name="custom_broadcast">You can send a custom message as a broadcast and receive it in your Broadcast receiver</string>
+    <string name="add_instruction">Add a register in the Room database.</string>
+    <string name="btn_add">Add</string>
+    <string name="read_instruction">Using the content provider, read the last register in database. This information will be accessible for other apps.</string>
+    <string name="btn_read">Read</string>
 
 </resources>

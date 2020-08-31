@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Service.ServiceExample">
+    tools:context=".BroadcastReceiver.BroadcastReceiverActivity">
 
 
     <LinearLayout
@@ -17,32 +17,34 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/btnPlay"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_play"/>
-        <Button
-            android:id="@+id/btnPause"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_pause"/>
-        <Button
-            android:id="@+id/btnStop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_stop"/>
-
         <TextView
-            android:id="@+id/musicPos"
+            android:id="@+id/instructions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/txt_instructions"
+            android:gravity="center_horizontal"
             />
 
-        <TextView
-            android:id="@+id/musicDuration"
+        <Button
+            android:id="@+id/btnActivateReceiver"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="@string/btn_activatereceiver"/>
+
+        <TextView
+            android:id="@+id/customInstructions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/custom_broadcast"
+            android:gravity="center_horizontal"
+            />
+
+        <Button
+            android:id="@+id/btnSendBroadcast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_customBroadcast"/>
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,16 +1,14 @@
-package com.mapp.androidcomponents;
+package com.mapp.androidcomponents.Service;
 
 import android.app.Service;
-import android.content.ComponentName;
 import android.content.Intent;
-import android.content.ServiceConnection;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Binder;
 import android.os.IBinder;
 import android.widget.Toast;
 
-import java.io.IOException;
+import com.mapp.androidcomponents.R;
 
 public class MyService extends Service{
 
@@ -48,7 +46,6 @@ public class MyService extends Service{
     @Override
     public IBinder onBind(Intent intent) {
         // TODO: Return the communication channel to the service.
-        //throw new UnsupportedOperationException("Not yet implemented");
         return binder;
 
     }

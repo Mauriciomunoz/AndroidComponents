@@ -9,23 +9,38 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ServiceExample"></activity>
-        <activity android:name=".MainActivity2" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".ContentProvider.ContentProviderActivity" />
+
+        <activity android:name=".BroadcastReceiver.BroadcastReceiverActivity" />
+        <activity android:name=".Service.ServiceExample" />
+        <activity android:name=".Activity.MainActivity2" />
+        <activity android:name=".Activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <provider
+            android:name=".ContentProvider.MyContentProvider"
+            android:authorities="com.mapp.androidcomponents.ContentProvider"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="com.example.android.contentprovidersample.provider.READ_WRITE"
+            ></provider>
+
+        <receiver
+            android:name=".BroadcastReceiver.MyReceiver"
+            android:enabled="true"
+            android:exported="false" />
         <!--
                Set to true if your app is Standalone, that is, it does not require the handheld
                app to run.
         -->
         <service
-            android:name=".MyService"
+            android:name=".Service.MyService"
             android:enabled="true"
-            android:exported="true" />
+            android:exported="false" />
     </application>
 
     <uses-feature android:name="android.hardware.type.watch" />

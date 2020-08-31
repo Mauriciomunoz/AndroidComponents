@@ -5,8 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Service.ServiceExample">
-
+    tools:context=".ContentProvider.ContentProviderActivity">
 
     <LinearLayout
         android:layout_width="413dp"
@@ -17,30 +16,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <Button
-            android:id="@+id/btnPlay"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_play"/>
-        <Button
-            android:id="@+id/btnPause"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_pause"/>
-        <Button
-            android:id="@+id/btnStop"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/btn_stop"/>
-
         <TextView
-            android:id="@+id/musicPos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/add_instruction"
             />
+        <Button
+            android:id="@+id/btnAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_add"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/read_instruction"
+            />
+        <Button
+            android:id="@+id/btnRead"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_read"/>
 
         <TextView
-            android:id="@+id/musicDuration"
+            android:id="@+id/dataInfo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
     </LinearLayout>

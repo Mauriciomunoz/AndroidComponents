@@ -1,4 +1,4 @@
-package com.mapp.androidcomponents;
+package com.mapp.androidcomponents.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
@@ -6,6 +6,7 @@ import androidx.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.view.View;
 
+import com.mapp.androidcomponents.R;
 import com.mapp.androidcomponents.databinding.ActivityMain2Binding;
 
 public class MainActivity2 extends AppCompatActivity implements View.OnClickListener{
@@ -32,7 +33,6 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
         super.onResume();
         bindingMainActivity2.onResume.setText("OnResume: Now I am interactable");
         bindingMainActivity2.onPause.setText("");
-
     }
 
     @Override
