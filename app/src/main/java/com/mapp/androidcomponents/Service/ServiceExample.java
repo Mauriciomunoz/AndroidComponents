@@ -3,6 +3,7 @@ package com.mapp.androidcomponents.Service;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
 
+import android.app.ActivityManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +11,7 @@ import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.view.View;
+import android.widget.Toast;
 
 import com.mapp.androidcomponents.R;
 import com.mapp.androidcomponents.databinding.ActivityServiceExampleBinding;
@@ -62,8 +64,10 @@ public class ServiceExample extends AppCompatActivity implements View.OnClickLis
                                 int seconds = position / 1000;
                                 int minutes = seconds / 60;
                                 seconds = seconds % 60;
-
-                                binding.musicPos.setText("" + minutes + ":" + seconds);
+                                if(seconds < 10)
+                                    binding.musicPos.setText("" + minutes + ":0" + seconds);
+                                else
+                                    binding.musicPos.setText("" + minutes + ":" + seconds);
                             }
                         });
                     }
@@ -76,6 +80,16 @@ public class ServiceExample extends AppCompatActivity implements View.OnClickLis
 
         }
     };
+
+    private boolean isMyServiceRunning(Class<?> serviceClass) {
+        ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        for (ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
+            if (serviceClass.getName().equals(service.service.getClassName())) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     @Override
     public void onClick(View v) {
@@ -105,21 +119,29 @@ public class ServiceExample extends AppCompatActivity implements View.OnClickLis
                 break;
             case R.id.btnStop:
                 //Destroy de service
-                i = new Intent(this, MyService.class);
-                unbindService(serviceConnection);
-                this.stopService(i);
-                binding.musicPos.setText("0:0");
+                if(isMyServiceRunning(MyService.class)) {
+                    i = new Intent(this, MyService.class);
+                    unbindService(serviceConnection);
+                    this.stopService(i);
+                    binding.musicPos.setText("0:00");
+                }else{
+                    Toast.makeText(this, "Audio is not playing", Toast.LENGTH_SHORT).show();
+                }
                 break;
 
             case R.id.btnPause:
                 //Using the binded service we can get the MediaPlayer and pause it
                 //We can call again the bind service and the song will continue but this will be binding and creating intents
-                if(!isPaused) {
-                    soundService.mPlayer.pause();
-                    isPaused = true;
+                if(soundService != null) {
+                    if (!isPaused) {
+                        soundService.mPlayer.pause();
+                        isPaused = true;
+                    } else {
+                        soundService.playAudio();
+                        isPaused = false;
+                    }
                 }else{
-                    soundService.playAudio();
-                    isPaused = false;
+                    Toast.makeText(this, "Audio is not playing", Toast.LENGTH_SHORT).show();
                 }
                 break;
 
